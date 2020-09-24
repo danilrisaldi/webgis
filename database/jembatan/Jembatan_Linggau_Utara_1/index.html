@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/BatasKelurahanKecLubuklinggauUtaraI_3.js"></script>
+        <script src="data/BatasKecamatanLubuklinggauUtaraI_4.js"></script>
+        <script src="data/Jembatan_5.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-3.262618568315432,102.77641694445468],[-3.1663551565261554,102.9439759603196]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+        });
+        layer_GoogleSatellite_0;
+        map.addLayer(layer_GoogleSatellite_0);
+        var layer_OpenStreetMap_1 = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '',
+        });
+        layer_OpenStreetMap_1;
+        map.addLayer(layer_OpenStreetMap_1);
+        var layer_ESRISatellite_2 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            opacity: 1.0,
+            attribution: '',
+        });
+        layer_ESRISatellite_2;
+        map.addLayer(layer_ESRISatellite_2);
+        function pop_BatasKelurahanKecLubuklinggauUtaraI_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>ID</strong><br />' + (feature.properties['ID'] !== null ? Autolinker.link(String(feature.properties['ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">AREA_METER</th>\
+                        <td>' + (feature.properties['AREA_METER'] !== null ? Autolinker.link(String(feature.properties['AREA_METER'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PERIMETER_</th>\
+                        <td>' + (feature.properties['PERIMETER_'] !== null ? Autolinker.link(String(feature.properties['PERIMETER_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HECTARES_</th>\
+                        <td>' + (feature.properties['HECTARES_'] !== null ? Autolinker.link(String(feature.properties['HECTARES_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ID_</th>\
+                        <td>' + (feature.properties['ID_'] !== null ? Autolinker.link(String(feature.properties['ID_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ACRES_</th>\
+                        <td>' + (feature.properties['ACRES_'] !== null ? Autolinker.link(String(feature.properties['ACRES_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">AREA_MET_1</th>\
+                        <td>' + (feature.properties['AREA_MET_1'] !== null ? Autolinker.link(String(feature.properties['AREA_MET_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PERIMETE_1</th>\
+                        <td>' + (feature.properties['PERIMETE_1'] !== null ? Autolinker.link(String(feature.properties['PERIMETE_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ACRES</th>\
+                        <td>' + (feature.properties['ACRES'] !== null ? Autolinker.link(String(feature.properties['ACRES'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HECTARES</th>\
+                        <td>' + (feature.properties['HECTARES'] !== null ? Autolinker.link(String(feature.properties['HECTARES'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">KELURAHAN</th>\
+                        <td>' + (feature.properties['KELURAHAN'] !== null ? Autolinker.link(String(feature.properties['KELURAHAN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">KECAMATAN</th>\
+                        <td>' + (feature.properties['KECAMATAN'] !== null ? Autolinker.link(String(feature.properties['KECAMATAN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LENGTH</th>\
+                        <td>' + (feature.properties['LENGTH'] !== null ? Autolinker.link(String(feature.properties['LENGTH'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_BatasKelurahanKecLubuklinggauUtaraI_3_0() {
+            return {
+                pane: 'pane_BatasKelurahanKecLubuklinggauUtaraI_3',
+                opacity: 1,
+                color: 'rgba(9,251,231,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_BatasKelurahanKecLubuklinggauUtaraI_3');
+        map.getPane('pane_BatasKelurahanKecLubuklinggauUtaraI_3').style.zIndex = 403;
+        map.getPane('pane_BatasKelurahanKecLubuklinggauUtaraI_3').style['mix-blend-mode'] = 'normal';
+        var layer_BatasKelurahanKecLubuklinggauUtaraI_3 = new L.geoJson(json_BatasKelurahanKecLubuklinggauUtaraI_3, {
+            attribution: '',
+            pane: 'pane_BatasKelurahanKecLubuklinggauUtaraI_3',
+            onEachFeature: pop_BatasKelurahanKecLubuklinggauUtaraI_3,
+            style: style_BatasKelurahanKecLubuklinggauUtaraI_3_0,
+        });
+        bounds_group.addLayer(layer_BatasKelurahanKecLubuklinggauUtaraI_3);
+        map.addLayer(layer_BatasKelurahanKecLubuklinggauUtaraI_3);
+        function pop_BatasKecamatanLubuklinggauUtaraI_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>COUNT</strong><br />' + (feature.properties['COUNT'] !== null ? Autolinker.link(String(feature.properties['COUNT'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">KECAMATANN</th>\
+                        <td>' + (feature.properties['KECAMATANN'] !== null ? Autolinker.link(String(feature.properties['KECAMATANN'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_BatasKecamatanLubuklinggauUtaraI_4_0() {
+            return {
+                pane: 'pane_BatasKecamatanLubuklinggauUtaraI_4',
+                opacity: 1,
+                color: 'rgba(28,253,7,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,72,75,0.0)',
+            }
+        }
+        map.createPane('pane_BatasKecamatanLubuklinggauUtaraI_4');
+        map.getPane('pane_BatasKecamatanLubuklinggauUtaraI_4').style.zIndex = 404;
+        map.getPane('pane_BatasKecamatanLubuklinggauUtaraI_4').style['mix-blend-mode'] = 'normal';
+        var layer_BatasKecamatanLubuklinggauUtaraI_4 = new L.geoJson(json_BatasKecamatanLubuklinggauUtaraI_4, {
+            attribution: '',
+            pane: 'pane_BatasKecamatanLubuklinggauUtaraI_4',
+            onEachFeature: pop_BatasKecamatanLubuklinggauUtaraI_4,
+            style: style_BatasKecamatanLubuklinggauUtaraI_4_0,
+        });
+        bounds_group.addLayer(layer_BatasKecamatanLubuklinggauUtaraI_4);
+        map.addLayer(layer_BatasKecamatanLubuklinggauUtaraI_4);
+        function pop_Jembatan_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">FID_Jembat</th>\
+                        <td>' + (feature.properties['FID_Jembat'] !== null ? Autolinker.link(String(feature.properties['FID_Jembat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Id</th>\
+                        <td>' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nm_Jbtn</th>\
+                        <td>' + (feature.properties['Nm_Jbtn'] !== null ? Autolinker.link(String(feature.properties['Nm_Jbtn'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sungai</th>\
+                        <td>' + (feature.properties['Sungai'] !== null ? Autolinker.link(String(feature.properties['Sungai'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kecamatan</th>\
+                        <td>' + (feature.properties['Kecamatan'] !== null ? Autolinker.link(String(feature.properties['Kecamatan'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama_Jalan</th>\
+                        <td>' + (feature.properties['Nama_Jalan'] !== null ? Autolinker.link(String(feature.properties['Nama_Jalan'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Panjang_m</th>\
+                        <td>' + (feature.properties['Panjang_m'] !== null ? Autolinker.link(String(feature.properties['Panjang_m'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lebar_m</th>\
+                        <td>' + (feature.properties['Lebar_m'] !== null ? Autolinker.link(String(feature.properties['Lebar_m'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">J_Bentang</th>\
+                        <td>' + (feature.properties['J_Bentang'] !== null ? Autolinker.link(String(feature.properties['J_Bentang'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">B_Atas</th>\
+                        <td>' + (feature.properties['B_Atas'] !== null ? Autolinker.link(String(feature.properties['B_Atas'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">BA_Kondisi</th>\
+                        <td>' + (feature.properties['BA_Kondisi'] !== null ? Autolinker.link(String(feature.properties['BA_Kondisi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">B_Bawah</th>\
+                        <td>' + (feature.properties['B_Bawah'] !== null ? Autolinker.link(String(feature.properties['B_Bawah'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">BB_Kondisi</th>\
+                        <td>' + (feature.properties['BB_Kondisi'] !== null ? Autolinker.link(String(feature.properties['BB_Kondisi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fondasi</th>\
+                        <td>' + (feature.properties['Fondasi'] !== null ? Autolinker.link(String(feature.properties['Fondasi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">F_Kondisi</th>\
+                        <td>' + (feature.properties['F_Kondisi'] !== null ? Autolinker.link(String(feature.properties['F_Kondisi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Koor_X</th>\
+                        <td>' + (feature.properties['Koor_X'] !== null ? Autolinker.link(String(feature.properties['Koor_X'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Koor_Y</th>\
+                        <td>' + (feature.properties['Koor_Y'] !== null ? Autolinker.link(String(feature.properties['Koor_Y'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Keterangan</th>\
+                        <td>' + (feature.properties['Keterangan'] !== null ? Autolinker.link(String(feature.properties['Keterangan'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Foto</th>\
+                        <td>' + (feature.properties['Foto'] !== null ? Autolinker.link(String(feature.properties['Foto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tpe_Lantai</th>\
+                        <td>' + (feature.properties['Tpe_Lantai'] !== null ? Autolinker.link(String(feature.properties['Tpe_Lantai'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">L_kondisi</th>\
+                        <td>' + (feature.properties['L_kondisi'] !== null ? Autolinker.link(String(feature.properties['L_kondisi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Thn_Pembua</th>\
+                        <td>' + (feature.properties['Thn_Pembua'] !== null ? Autolinker.link(String(feature.properties['Thn_Pembua'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Thn_Penang</th>\
+                        <td>' + (feature.properties['Thn_Penang'] !== null ? Autolinker.link(String(feature.properties['Thn_Penang'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FID_Jemb_1</th>\
+                        <td>' + (feature.properties['FID_Jemb_1'] !== null ? Autolinker.link(String(feature.properties['FID_Jemb_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nm_Jbtn_1</th>\
+                        <td>' + (feature.properties['Nm_Jbtn_1'] !== null ? Autolinker.link(String(feature.properties['Nm_Jbtn_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">No_Jmbtn</th>\
+                        <td>' + (feature.properties['No_Jmbtn'] !== null ? Autolinker.link(String(feature.properties['No_Jmbtn'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Jembatan_5_0() {
+            return {
+                pane: 'pane_Jembatan_5',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/jembatan 2.svg',
+            iconSize: [52.43999999999998, 52.43999999999998]
+        }),
+            }
+        }
+        map.createPane('pane_Jembatan_5');
+        map.getPane('pane_Jembatan_5').style.zIndex = 405;
+        map.getPane('pane_Jembatan_5').style['mix-blend-mode'] = 'normal';
+        var layer_Jembatan_5 = new L.geoJson(json_Jembatan_5, {
+            attribution: '',
+            pane: 'pane_Jembatan_5',
+            onEachFeature: pop_Jembatan_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Jembatan_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Jembatan_5);
+        map.addLayer(layer_Jembatan_5);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Jembatan_5.png" /> Jembatan': layer_Jembatan_5,'<img src="legend/BatasKecamatanLubuklinggauUtaraI_4.png" /> Batas Kecamatan Lubuklinggau Utara I': layer_BatasKecamatanLubuklinggauUtaraI_4,'<img src="legend/BatasKelurahanKecLubuklinggauUtaraI_3.png" /> Batas Kelurahan Kec. Lubuklinggau Utara I': layer_BatasKelurahanKecLubuklinggauUtaraI_3,"ESRI Satellite": layer_ESRISatellite_2,"OpenStreetMap": layer_OpenStreetMap_1,"Google Satellite": layer_GoogleSatellite_0,}).addTo(map);L.control.scale({position: 'bottomleft', maxWidth: 100, metric: true, imperial: false, updateWhenIdle: false}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_Jembatan_5.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Nm_Jbtn_1'] !== null?String('<div style="color: #ede617; font-size: 12pt; font-weight: bold; font-family: \'Minion Pro Cond\', sans-serif;">' + layer.feature.properties['Nm_Jbtn_1']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Jembatan_5'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        map.addControl(new L.Control.Search({
+            layer: layer_Jembatan_5,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'Nm_Jbtn'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        resetLabels([layer_Jembatan_5]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Jembatan_5]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Jembatan_5]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Jembatan_5]);
+        });
+        </script>
+    </body>
+</html>

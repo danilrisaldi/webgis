@@ -1,0 +1,12 @@
+tabel personalia untuk kehadiran pimpinan
+tabel mutiara untuk motivasi
+
+TABEL2
+agenda
+pengumuman
+galery
+slide
+user
+
+utk di cek
+page

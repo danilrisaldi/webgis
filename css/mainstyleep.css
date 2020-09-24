@@ -1,0 +1,205 @@
+.nav-pills > li > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.list-group-item{
+	display: block;
+	padding: 10px 15px;
+	margin-bottom: -1px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	list-style: none;
+}
+body{
+	background: url(../img/hj.jpg);
+	background-size:cover;
+
+	
+	/*background:#FFF;*/
+}
+#wrapper{	
+	margin-top: 30px;
+	margin-bottom: 10px;
+	
+	width:80%; 
+}
+
+#header{	
+	/* background: url(../img/111.jpg); */
+	
+	color:yellow;
+	margin-bottom: 5px;
+	text-shadow: 0px 3px 2px rgba(0,0,0,.5);
+}
+
+#navigasi .span12{
+	background: yellow;  /* darkgreen*/
+	padding: 4px;
+}
+
+#navigasi ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+#navigasi form{
+	padding: 0px;
+	margin: 0px;
+}
+
+#slider{
+	background: rgba(255,255,255,.5);
+	margin: 5px auto;
+	height: auto;		
+}
+
+#slider img{
+	 max-height: 600px;
+}
+.container-fluid {
+    padding: 0px !important;
+}
+#contain{
+	
+	/*background:url(../img/TES3.JPG);*/
+	background:lightblue;
+	border-radius:20px 10px 20px 10px;  /* lengkungan atas kanan bawah kiri*/
+	margin: 10px auto;
+}
+
+#containt{
+	padding: 10px;
+}
+
+#content ul.postings li{
+	padding-left: 0px;
+	margin-left: 0px;
+	/*margin-right: 1.127659574468085%;*/
+	margin-right:12px;
+	margin-left:0.1px;
+}
+li.posting{
+	padding: 0px;
+	
+	/*background: rgba(0,0,0,0.1);	*/
+	background:rgba(255,255,255,0.5);
+	/*background:url(../img/TES.JPG);*/
+}
+
+
+
+
+#mutiara{
+	background:rgba(255,255,255,0.5);
+	margin: 10px auto;
+}
+
+#download{
+	background:rgba(255,255,255,0.5);
+	margin:2 auto;
+}
+
+
+#kolom1{
+	background:#0FF;
+	margin:10px auto;
+	margin-right: 10px auto;
+}
+
+#content ul.postings{margin:0px;}
+
+
+#pengumuman{
+	background:rgba(255,255,255,0.5);
+	margin: 10px auto;
+}
+
+
+
+#footer{
+	/*background:#9F6;*/
+	background:yellow;
+}
+
+#footer p{
+	padding: 10px;
+	text-align: center;
+	font-weight: bold;
+}
+.login-top{
+	padding-top: 7px;
+}
+.navbar-inner h5{
+	color: #ffffff;
+}
+
+#login-footer p{
+	color: #ffffff;
+	text-align:center;
+	padding: 10px;
+}
+
+#bungkus{
+	background: #ffffff;
+	padding: 10px;
+	margin-top: 10%;
+	border-radius: 10px;
+	box-shadow: 0px 3px 2px rgba(0,0,0,.5);
+}
+
+#bungkus h3{text-align: center;}
+#bottom-content{
+	/*background:#9F6; */
+	background:lightblue;	
+	margin: 10px auto;
+	
+	border-radius:20px 10px 20px 10px;  /* lengkungan atas kanan bawah kiri*/
+
+}
+#personalia {
+	background:rgba(255,255,255,0.5);
+	 margin: 10px;
+	
+}
+#personalia li{
+	margin-left: 0px;
+	/*margin-right:0.127659574468085%;*/
+	
+	padding-left:0px;
+	padding-right:10px;
+	
+}
+
+#event{
+	padding-right: 2px;
+	/*margin:10px auto;*/
+	margin-top:10px;
+	
+	}
+	
+#klm2{
+	margin:0px auto;
+	padding-top:-0px;
+	margin-right:-9px;
+	margin-left:5px;
+	
+	/*padding:10px;*/
+	}
+#agenda{
+	background:rgba(255,255,255,0.5);
+	margin-top: 10px;
+	}
+
+#galery{
+	/*background:#999; */
+	background:rgba(255,255,255,0.5);
+	margin: 10px auto;
+}
+
